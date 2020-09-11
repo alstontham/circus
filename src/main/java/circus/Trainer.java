@@ -1,12 +1,11 @@
 package circus;
 
-import circus.animal.Animal;
-import circus.animal.Bird;
-import circus.animal.Duck;
+import circus.Animal;
+import circus.Bird;
 
 public class Trainer {
     public static void main(String[] args) {
-        Duck d = new Duck("Donald");
+        Duck d = new Duck();
         getToSpeak(d);
 
         Bird b = (Bird)d;  // upcasting
@@ -16,8 +15,11 @@ public class Trainer {
         getToSpeak(a);
 
         Duck d2 = (Duck) a; // downcasting
-        train(new Duck("Daisy"));
-        // train(new circus.animal.Parrot());
+        getToSpeak(d2);
+        train(new Duck());
+        // train(new circus.Parrot());
+        Animal a2 = new Animal();
+        Bird b2 = new Bird();
     }
 
     private static void getToSpeak(Animal animal) {
@@ -25,9 +27,7 @@ public class Trainer {
     }
 
     private static void train(Bird bird) {
-        if (bird instanceof Duck) {
-            Duck d = (Duck) bird;
-            d.swim();
-        }
+        Duck d = (Duck) bird;
+        d.swim();
     }
 }
